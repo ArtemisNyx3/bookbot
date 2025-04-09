@@ -13,3 +13,13 @@ def get_character_frequency(book_text: str) -> dict:
         else: 
             frequency_dict[ch] = 1
     return frequency_dict
+
+def sort_dict(freq_dict:dict):
+    # remove nonaplha
+    rem_list = []
+    for x in freq_dict.keys():
+        if not x.isalpha():
+            rem_list.append(x)
+    for key in rem_list:
+        freq_dict.pop(key)
+    return sorted(freq_dict.items() ,key=lambda x:x[1], reverse=True)
